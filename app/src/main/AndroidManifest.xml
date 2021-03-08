@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ESpeedboatAdmin">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_dashboard_admin"
+            android:theme="@style/Theme.ESpeedboatAdmin.NoActionBar"></activity>
+        <activity android:name=".LoginAdmin" />
+        <activity android:name=".DashboardAdminActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
