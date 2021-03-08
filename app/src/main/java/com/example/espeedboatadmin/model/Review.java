@@ -1,14 +1,23 @@
 package com.example.espeedboatadmin.model;
 
 public class Review {
-    private String review;
+    private String review, username;
     private int score, id_speedboat, id_pembelian, id_review;
 
-    public Review (String review, int score, int id_speedboat, int id_pembelian) {
+    public Review (String review, String username, int score, int id_speedboat, int id_pembelian) {
+        this.username = username;
         this.review = review;
         this.score = score;
         this.id_speedboat = id_speedboat;
         this.id_pembelian = id_pembelian;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     public void setReview(String review) {
