@@ -21,4 +21,5 @@
     <color name="primary_grey">#9C9C9C</color>
     <color name="secondary_grey">#ACACAC</color>
     <color name="base_grey">#DDDDDD</color>
+    <color name="gradient_end_blue">#7FCCEF</color>
 </resources>

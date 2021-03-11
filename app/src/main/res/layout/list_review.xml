@@ -3,99 +3,92 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardBackgroundColor="@color/tetry_base"
+    app:cardBackgroundColor="@color/background_blue"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"
         android:orientation="vertical"
-        android:padding="4dp"
-        android:background="@color/secondary_base">
+        android:padding="16dp"
+        android:background="@drawable/bg_review_list">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
             android:orientation="horizontal"
             android:gravity="center_vertical">
             <ImageView
                 android:id="@+id/image_user"
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                app:srcCompat="@color/teal_200"
-                tools:srcCompat="@tools:sample/avatars"
-                tools:ignore="ContentDescription" />
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                app:srcCompat="@drawable/ic_profil_pic"
+                tools:ignore="ContentDescription"
+                tools:srcCompat="@drawable/ic_profil_pic" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="4dp">
+                android:layout_marginLeft="8dp">
                 <TextView
-                    android:id="@+id/review_text_username"
+                    android:id="@+id/review_text_email"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/primary_black"
+                    android:textSize="16sp"
                     android:gravity="start"
                     android:text="@string/base_null"/>
 
-                <TextView
-                    android:id="@+id/review_text_id_pembelian"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp"
-                    android:gravity="end"
-                    android:text="@string/base_null"/>
-
                 <LinearLayout
-                    android:id="@+id/score_wrapper"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="end">
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
+                    android:gravity="start">
+                    <LinearLayout
+                        android:id="@+id/score_wrapper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="start">
+                    </LinearLayout>
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
                         android:layout_marginHorizontal="2dp"
-                        android:src="@drawable/ic_star"
-                        tools:ignore="ContentDescription" />
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginHorizontal="2dp"
-                        android:src="@drawable/ic_star"
-                        tools:ignore="ContentDescription" />
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginHorizontal="2dp"
-                        android:src="@drawable/ic_star"
-                        tools:ignore="ContentDescription" />
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:layout_marginHorizontal="2dp"
-                        android:src="@drawable/ic_star"
-                        tools:ignore="ContentDescription" />
+                        android:background="@color/secondary_yellow"/>
+                    <TextView
+                        android:id="@+id/review_text_score"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:fontFamily="@font/roboto_bold"
+                        android:textColor="@color/primary_yellow"
+                        android:textSize="12sp"
+                        android:text="@string/base_null"/>
                 </LinearLayout>
 
-<!--                <TextView-->
-<!--                    android:id="@+id/review_text_score"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginVertical="2dp"-->
-<!--                    android:gravity="end"-->
-<!--                    android:text="@string/base_null"/>-->
-
+                <TextView
+                    android:id="@+id/review_text_tanggal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/primary_grey"
+                    android:textSize="12sp"
+                    android:text="@string/base_null" />
             </LinearLayout>
         </LinearLayout>
         <TextView
             android:id="@+id/review_text_review"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_margin="8dp"
-            android:text="@string/base_null"
-            android:background="@color/tetry_base"/>
+            android:background="@color/white"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/roboto_medium"
+            android:textColor="@color/secondary_grey"
+            android:textSize="14sp"
+            android:text="@string/base_null"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

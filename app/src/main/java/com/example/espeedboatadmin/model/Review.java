@@ -1,54 +1,73 @@
 package com.example.espeedboatadmin.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class Review {
-    private String review, username;
-    private int score, id_speedboat, id_pembelian, id_review;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("image")
+    @Expose
+    private String image;
+    @SerializedName("email")
+    @Expose
+    private String email;
+    @SerializedName("tanggal")
+    @Expose
+    private String tanggal;
+    @SerializedName("score")
+    @Expose
+    private Integer score;
+    @SerializedName("review")
+    @Expose
+    private String review;
 
-    public Review (String review, String username, int score, int id_speedboat, int id_pembelian) {
-        this.username = username;
-        this.review = review;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal = tanggal;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
         this.score = score;
-        this.id_speedboat = id_speedboat;
-        this.id_pembelian = id_pembelian;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setReview(String review) {
-        this.review = review;
     }
 
     public String getReview() {
         return review;
     }
 
-    public void setScore(int score) {
-        this.score = score;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setId_speedboat(int id_speedboat) {
-        this.id_speedboat = id_speedboat;
-    }
-
-    public int getId_speedboat() {
-        return id_speedboat;
-    }
-
-    public void setId_pembelian(int id_pembelian) {
-        this.id_pembelian = id_pembelian;
-    }
-
-    public int getId_pembelian() {
-        return id_pembelian;
+    public void setReview(String review) {
+        this.review = review;
     }
 }
