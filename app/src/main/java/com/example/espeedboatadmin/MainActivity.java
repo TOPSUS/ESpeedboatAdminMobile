@@ -14,21 +14,5 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        review_btn = findViewById(R.id.review_index);
-
-        reviewListener();
-    }
-
-    void reviewListener() {
-        review_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(MainActivity.this, ReviewActivity.class);
-                startActivity(intent);
-
-                finish();
-            }
-        });
     }
 }

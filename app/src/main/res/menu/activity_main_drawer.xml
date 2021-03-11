@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:showIn="navigation_view">
 
     <group>
-        <item android:title="Views">
+        <item android:title="@string/sb_view">
         </item>
     </group>
     <group
@@ -14,22 +13,22 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
-            android:title="Dashboard" />
+            android:title="@string/sb_dashboard" />
         <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Berita" />
+            android:title="@string/sb_berita" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/speedboat"
-            android:title="Profile Speedboat" />
+            android:title="@string/sb_profile" />
         <item
             android:id="@+id/nav_listberita"
             android:icon="@drawable/list_bullet"
-            android:title="List Berita Speedboat" />
+            android:title="@string/sb_list_berita_speedboat" />
     </group>
     <group>
-        <item android:title="Managements">
+        <item android:title="@string/sb_management">
         </item>
     </group>
     <group
@@ -38,18 +37,22 @@
         <item
             android:id="@+id/nav_ejadwal"
             android:icon="@drawable/edit"
-            android:title="Edit Jadwal" />
+            android:title="@string/sb_jadwal_edit" />
         <item
             android:id="@+id/nav_listtransaksidone"
             android:icon="@drawable/money_on"
-            android:title="Transaksi Done" />
+            android:title="@string/sb_transaksi_done" />
         <item
             android:id="@+id/nav_listtransaksino"
             android:icon="@drawable/money_off"
-            android:title="Transaksi not Done" />
+            android:title="@string/sb_transaksi_not_done" />
         <item
             android:id="@+id/nav_poin"
             android:icon="@drawable/point"
-            android:title="Point Management" />
+            android:title="@string/sb_point" />
+        <item
+            android:id="@+id/nav_review"
+            android:icon="@drawable/ic_customer_feedback"
+            android:title="@string/sb_review" />
     </group>
 </menu>
