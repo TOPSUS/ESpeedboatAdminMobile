@@ -10,4 +10,15 @@
     <color name="primary_base">#1BA0DC</color>
     <color name="secondary_base">#BBE6FA</color>
     <color name="tetry_base">#EAF8FF</color>
+
+    <color name="primary_blue">#1BA0DC</color>
+    <color name="secondary_blue">#BBE6FA</color>
+    <color name="background_blue">#EAF8FF</color>
+    <color name="base_blue">#F3F9FD</color>
+    <color name="primary_yellow">#FFF626</color>
+    <color name="secondary_yellow">#FFFA8D</color>
+    <color name="primary_black">#222222</color>
+    <color name="primary_grey">#9C9C9C</color>
+    <color name="secondary_grey">#ACACAC</color>
+    <color name="base_grey">#DDDDDD</color>
 </resources>
