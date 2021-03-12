@@ -25,4 +25,8 @@
     <string name="sb_transaksi_not_done">Transaksi not Done</string>
     <string name="sb_point">Point Management</string>
     <string name="sb_review">Review</string>
+
+    <string name="review_detail_from">From</string>
+    <string name="review_detail_to">To</string>
+    <string name="review_detail_order">Detail Order</string>
 </resources>

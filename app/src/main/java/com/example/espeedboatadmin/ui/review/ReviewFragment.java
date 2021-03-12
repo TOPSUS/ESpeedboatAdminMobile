@@ -62,7 +62,7 @@ public class ReviewFragment extends Fragment {
     }
 
     private void getData() {
-        Call<ResponseReview> getReviews = service.getReviews(new SessionManager().getAuthToken());
+        Call<ResponseReview> getReviews = service.getReviews(new SessionManager(view.getContext()).getAuthToken());
 
         getReviews.enqueue(new Callback<ResponseReview>() {
             @Override
