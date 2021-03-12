@@ -60,20 +60,22 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Username"
+            android:text="E-Mail"
             android:textColor="@color/black"/>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Your username"
             android:textColorHint="#999da0"
-            android:textColor="#999da0">
-            <EditText
+            android:textColor="#999da0"
+            android:id="@+id/EmailLayout">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailadmin"
+                android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/input_type_border"
-                android:inputType="text"/>
+                android:inputType="textEmailAddress"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
@@ -92,10 +94,12 @@
             android:layout_height="wrap_content"
             android:textColorHint="#999da0"
             android:textColor="#999da0"
-            android:hint="Your password"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="#999da0">
-            <EditText
+            app:passwordToggleTint="#999da0"
+            android:id="@+id/PaswordLayout">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordadmin"
+                android:textColor="@color/black"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -110,8 +114,9 @@
         android:gravity="center"
         tools:ignore="MissingConstraints">
         <Button
-            android:paddingLeft="90dp"
-            android:paddingRight="90dp"
+            android:id="@+id/loginbutton"
+            android:paddingLeft="70dp"
+            android:paddingRight="70dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/button"
@@ -126,6 +131,7 @@
         tools:ignore="MissingConstraints"
         android:orientation="vertical">
         <TextView
+            android:id="@+id/forgotpass"
             android:textColor="#1BA0DC"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

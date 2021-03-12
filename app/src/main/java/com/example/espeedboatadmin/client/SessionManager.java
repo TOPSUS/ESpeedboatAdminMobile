@@ -1,13 +1,48 @@
 package com.example.espeedboatadmin.client;
 
-public class SessionManager {
-    private String auth_token = "2|ib7dTa9FAfXOB6QgMnjtYY11cyVsqMIvXDpVMZxF";
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.example.espeedboatadmin.R;
+
+public class SessionManager{
+    private Context context;
+    private String USER_TOKEN = "user_token";
+    private String USER_EMAIL = "user_email";
+    private String USER_NAMA = "user_nama";
+    private SharedPreferences sharedPreferences = context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE);
+
+    public SessionManager (Context cont) {
+        this.context = cont;
+    }
 
     public void setAuthToken(String token) {
-        this.auth_token = token;
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(USER_TOKEN, token);
+        editor.apply();
     }
 
     public String getAuthToken() {
-        return "Bearer "+auth_token;
+        return "Bearer "+ sharedPreferences.getString(USER_TOKEN, null);
+    }
+
+    public void setUserNama(String nama) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(USER_NAMA, nama);
+        editor.apply();
+    }
+
+    public String getUserNama() {
+        return sharedPreferences.getString(USER_NAMA, null);
+    }
+
+    public void setUserEmail(String email) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(USER_EMAIL, email);
+        editor.apply();
+    }
+
+    public String getUserEmail() {
+        return sharedPreferences.getString(USER_EMAIL, null);
     }
 }

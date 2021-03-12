@@ -15,11 +15,11 @@
         tools:ignore="AllowBackup"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".DashboardAdminActivity"
             android:label="@string/title_activity_dashboard_admin"
             android:theme="@style/Theme.ESpeedboatAdmin.NoActionBar"/>
         <activity android:name=".LoginAdmin" />
-        <activity android:name=".DashboardAdminActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
