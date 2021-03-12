@@ -10,6 +10,7 @@ public class SessionManager{
     private String USER_TOKEN = "user_token";
     private String USER_EMAIL = "user_email";
     private String USER_NAMA = "user_nama";
+    private String USER_FLAG = "user_flag";
     private SharedPreferences sharedPreferences;
 
     public SessionManager (Context cont) {
@@ -45,5 +46,15 @@ public class SessionManager{
 
     public String getUserEmail() {
         return sharedPreferences.getString(USER_EMAIL, null);
+    }
+
+    public void setFlag(Boolean flag) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(USER_FLAG, true);
+        editor.apply();
+    }
+
+    public boolean getUserFlag() {
+        return sharedPreferences.getBoolean(USER_FLAG, false);
     }
 }

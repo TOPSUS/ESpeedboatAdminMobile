@@ -10,9 +10,15 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.espeedboatadmin.client.SessionManager;
+import com.example.espeedboatadmin.model.ResponseReview;
+
+import retrofit2.Call;
+
 public class MainActivity extends AppCompatActivity {
     private Button review_btn;
     private Intent intent;
+    boolean isLoggedIn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                SharedPreferences userPref = getApplicationContext().getSharedPreferences("user_token", Context.MODE_PRIVATE);
-                boolean isLoggedIn = userPref.getBoolean("isLoggedIn", false);
+               isLoggedIn = new SessionManager(getApplicationContext()).getUserFlag();
                 if(isLoggedIn){
                     startActivity(new Intent(MainActivity.this, DashboardAdminActivity.class));
                     finish();
