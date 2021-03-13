@@ -3,7 +3,7 @@ package com.example.espeedboatadmin.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Score {
+public class ReviewSummaryScore {
     @SerializedName("1")
     @Expose
     private Integer score_1;
