@@ -1,7 +1,6 @@
 package com.example.espeedboatadmin.adapter;
 
 import android.annotation.SuppressLint;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,17 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.espeedboatadmin.R;
 import com.example.espeedboatadmin.holder.ReviewViewHolder;
-import com.example.espeedboatadmin.model.ResponseReview;
-import com.example.espeedboatadmin.model.Review;
+import com.example.espeedboatadmin.model.ReviewList;
 import com.example.espeedboatadmin.utils.CircleTransform;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class ReviewAdapter extends RecyclerView.Adapter<ReviewViewHolder> {
-    private final List<Review> dataList;
+    private final List<ReviewList> dataList;
 
-    public ReviewAdapter(List<Review> list) {
+    public ReviewAdapter(List<ReviewList> list) {
         this.dataList = list;
     }
 
