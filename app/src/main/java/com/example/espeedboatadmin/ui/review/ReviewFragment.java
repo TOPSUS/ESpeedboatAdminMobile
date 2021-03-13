@@ -29,6 +29,8 @@ import com.example.espeedboatadmin.client.SessionManager;
 import com.example.espeedboatadmin.model.Response;
 import com.example.espeedboatadmin.service.ReviewService;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -51,13 +53,11 @@ public class ReviewFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_review, container, false);
         recyclerView = view.findViewById(R.id.recycle_review);
-
         service = RetrofitClient.getClient().create(ReviewService.class);
-
-        getData();
-
         layoutManager = new LinearLayoutManager(view.getContext());
         recyclerView.setLayoutManager(layoutManager);
+
+        getData();
 
         return view;
     }
@@ -67,7 +67,7 @@ public class ReviewFragment extends Fragment {
 
         getReviews.enqueue(new Callback<Response>() {
             @Override
-            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+            public void onResponse(@NotNull Call<Response> call, retrofit2.Response<Response> response) {
                 if (response.isSuccessful()) {
                     if (response.body().getStatus() == 200) {
                         Data data = response.body().getData();

@@ -1,9 +1,11 @@
 package com.example.espeedboatadmin.adapter;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,16 +36,25 @@ public class ReviewAdapter extends RecyclerView.Adapter<ReviewViewHolder> {
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ReviewViewHolder holder, int position) {
-        holder.getEmail().setText(dataList.get(position).getEmail());
-        holder.getTanggal().setText(dataList.get(position).getTanggal());
-        holder.getReview().setText(dataList.get(position).getReview());
-        holder.getScoreText().setText(dataList.get(position).getScore().toString());
-        holder.setScore(dataList.get(position).getScore());
-        Picasso.get().load(dataList.get(position).getImage()).transform(new CircleTransform()).into(holder.getImageUser());
+        setData(holder, dataList.get(position));
+        holder.itemView.setOnClickListener(v -> { itemClickListener(dataList.get(position)); });
     }
 
     @Override
     public int getItemCount() {
         return (dataList != null) ? dataList.size() : 0;
+    }
+
+    private void setData(@NonNull ReviewViewHolder holder, ReviewList data) {
+        holder.setEmail(data.getEmail());
+        holder.setTanggal(data.getTanggal());
+        holder.setReview(data.getReview());
+        holder.setScoreText(data.getScore().toString());
+        holder.setScore(data.getScore());
+        holder.setImageUser(data.getImage());
+    }
+
+    private void itemClickListener(ReviewList item) {
+        Log.d("LISTENER [REVIEW]", item.getId().toString());
     }
 }

@@ -9,9 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.espeedboatadmin.R;
+import com.example.espeedboatadmin.utils.CircleTransform;
 import com.example.espeedboatadmin.utils.Utils;
+import com.squareup.picasso.Picasso;
 
-public class ReviewViewHolder extends RecyclerView.ViewHolder {
+public class ReviewViewHolder extends RecyclerView.ViewHolder{
     private TextView email, tanggal, review, score_text;
     private LinearLayout score;
     private ImageView imageUser;
@@ -34,14 +36,30 @@ public class ReviewViewHolder extends RecyclerView.ViewHolder {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email.setText(email);
+    }
+
     public TextView getTanggal() { return tanggal; }
+
+    public void setTanggal(String tanggal) {
+        this.tanggal.setText(tanggal);
+    }
 
     public TextView getReview() {
         return review;
     }
 
+    public void setReview(String review) {
+        this.review.setText(review);
+    }
+
     public TextView getScoreText() {
         return score_text;
+    }
+
+    public void setScoreText(String score_text) {
+        this.score_text.setText(score_text);
     }
 
     public LinearLayout getScore() {
@@ -68,5 +86,9 @@ public class ReviewViewHolder extends RecyclerView.ViewHolder {
 
     public ImageView getImageUser() {
         return imageUser;
+    }
+
+    public void setImageUser(String imageUser) {
+        Picasso.get().load(imageUser).transform(new CircleTransform()).into(this.imageUser);
     }
 }
