@@ -26,7 +26,7 @@
             android:orientation="horizontal"
             android:gravity="center_vertical">
             <ImageView
-                android:id="@+id/image_user"
+                android:id="@+id/rd_image_user"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 app:srcCompat="@drawable/ic_profil_pic"
@@ -38,7 +38,7 @@
                 android:orientation="vertical"
                 android:layout_marginLeft="8dp">
                 <TextView
-                    android:id="@+id/review_text_email"
+                    android:id="@+id/rd_email"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_medium"
@@ -53,7 +53,7 @@
                     android:orientation="horizontal"
                     android:gravity="start">
                     <LinearLayout
-                        android:id="@+id/score_wrapper"
+                        android:id="@+id/rd_score_wrapper"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
@@ -65,7 +65,7 @@
                         android:layout_marginHorizontal="2dp"
                         android:background="@color/secondary_yellow"/>
                     <TextView
-                        android:id="@+id/review_text_score"
+                        android:id="@+id/rd_score"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="2dp"
@@ -76,7 +76,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/review_text_tanggal"
+                    android:id="@+id/rd_tanggal"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="start"
@@ -87,7 +87,7 @@
             </LinearLayout>
         </LinearLayout>
         <TextView
-            android:id="@+id/review_text_review"
+            android:id="@+id/rd_review"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
@@ -131,6 +131,7 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_loc"/>
                     <TextView
+                        android:id="@+id/rd_from_loc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="8dp"
@@ -151,6 +152,7 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_date"/>
                     <TextView
+                        android:id="@+id/rd_from_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="8dp"
@@ -171,6 +173,7 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_time"/>
                     <TextView
+                        android:id="@+id/rd_from_time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="8dp"
@@ -205,6 +208,7 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_loc"/>
                     <TextView
+                        android:id="@+id/rd_to_loc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="8dp"
@@ -225,6 +229,7 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_date"/>
                     <TextView
+                        android:id="@+id/rd_to_date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="8dp"
@@ -245,6 +250,7 @@
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_time"/>
                     <TextView
+                        android:id="@+id/rd_to_time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="8dp"
@@ -286,6 +292,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_speedboat"/>
                 <TextView
+                    android:id="@+id/rd_speedboat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
@@ -306,6 +313,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_ticket"/>
                 <TextView
+                    android:id="@+id/rd_person"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
@@ -326,6 +334,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_price"/>
                 <TextView
+                    android:id="@+id/rd_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="8dp"
