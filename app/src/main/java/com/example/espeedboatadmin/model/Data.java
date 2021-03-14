@@ -25,6 +25,7 @@ public class Data {
     @Expose
     private Transaksi transaksi = null;
 
+
     public List<ReviewList> getReviewList() {
         return reviewList;
     }

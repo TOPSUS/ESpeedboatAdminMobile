@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.espeedboatadmin.client.SessionManager;
-import com.example.espeedboatadmin.model.ResponseReview;
 
 import retrofit2.Call;
 
