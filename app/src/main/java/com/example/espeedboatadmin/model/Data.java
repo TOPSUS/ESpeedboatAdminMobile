@@ -18,9 +18,12 @@ public class Data {
     @SerializedName("review_detail_order")
     @Expose
     private ReviewDetailOrder reviewDetailOrder;
+    @SerializedName("transaksi_list")
+    @Expose
+    private List<Transaksi> transaksiLists = null;
     @SerializedName("transaksi")
     @Expose
-    private List<Transaksi> transaksi = null;
+    private Transaksi transaksi = null;
 
     public List<ReviewList> getReviewList() {
         return reviewList;
@@ -53,11 +56,19 @@ public class Data {
         this.reviewDetailOrder = reviewDetailOrder;
     }
 
-    public List<Transaksi> getTransaksi() {
+    public List<Transaksi> getTransaksiList() {
+        return transaksiLists;
+    }
+
+    public void setTransaksiList(List<Transaksi> transaksi) {
+        this.transaksiLists = transaksi;
+    }
+
+    public Transaksi getTransaksi() {
         return transaksi;
     }
 
-    public void setTransaksi(List<Transaksi> transaksi) {
+    public void setTransaksi(Transaksi transaksi) {
         this.transaksi = transaksi;
     }
 }

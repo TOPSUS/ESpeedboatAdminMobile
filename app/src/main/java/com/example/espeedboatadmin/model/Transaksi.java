@@ -3,6 +3,8 @@ package com.example.espeedboatadmin.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 public class Transaksi {
     @SerializedName("id")
     @Expose
@@ -40,6 +42,12 @@ public class Transaksi {
     @SerializedName("person")
     @Expose
     private Integer person;
+    @SerializedName("bukti")
+    @Expose
+    private String bukti;
+    @SerializedName("transaksi_detail")
+    @Expose
+    private List<TransaksiDetail> detailTransaksi = null;
 
     public Integer getId() {
         return id;
@@ -137,4 +145,19 @@ public class Transaksi {
         this.person = person;
     }
 
+    public String getBukti() {
+        return bukti;
+    }
+
+    public void setBukti(String bukti) {
+        this.bukti = bukti;
+    }
+
+    public List<TransaksiDetail> getDetailTransaksi() {
+        return detailTransaksi;
+    }
+
+    public void setDetailTransaksi(List<TransaksiDetail> detailTransaksi) {
+        this.detailTransaksi = detailTransaksi;
+    }
 }

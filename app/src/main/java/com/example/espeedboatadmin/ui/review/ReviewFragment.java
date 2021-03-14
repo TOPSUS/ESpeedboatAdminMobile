@@ -42,10 +42,14 @@ public class ReviewFragment extends Fragment {
     private View view;
     private RecyclerView.LayoutManager layoutManager;
     private ReviewService service;
+    private int transaksi_id = 0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            this.transaksi_id = getArguments().getInt(Utils.TRANSAKSI_ID);
+        }
     }
 
     @Override
@@ -63,7 +67,7 @@ public class ReviewFragment extends Fragment {
     }
 
     private void getData() {
-        Call<Response> getReviews = service.getReviews(new SessionManager().getAuthToken());
+        Call<Response> getReviews = service.getReviews(new SessionManager().getAuthToken(), transaksi_id);
 
         getReviews.enqueue(new Callback<Response>() {
             @Override

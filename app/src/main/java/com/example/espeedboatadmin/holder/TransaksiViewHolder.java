@@ -95,7 +95,6 @@ public class TransaksiViewHolder  extends RecyclerView.ViewHolder{
     }
 
     public void setStatus(String status) {
-        Log.d("DEBUG [STATUS]", status);
         String text = "Default";
         int color = R.drawable.status_default;
         if (status.equals("Terkonfirmasi")) {

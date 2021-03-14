@@ -2,23 +2,31 @@ package com.example.espeedboatadmin.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.espeedboatadmin.R;
 import com.example.espeedboatadmin.holder.TransaksiViewHolder;
 import com.example.espeedboatadmin.model.Transaksi;
+import com.example.espeedboatadmin.ui.review.ReviewDetailFragment;
+import com.example.espeedboatadmin.ui.transaksi.TransaksiDetailFragment;
+import com.example.espeedboatadmin.utils.Utils;
 
 import java.util.List;
 
 
 public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiViewHolder>{
     private final List<Transaksi> dataList;
+    private Context context;
 
     public TransaksiAdapter (List<Transaksi> list) {
         this.dataList = list;
@@ -29,6 +37,7 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiViewHolder>{
     public TransaksiViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.list_transaksi, parent, false);
+        this.context = view.getContext();
 
         return new TransaksiViewHolder(view);
     }
@@ -37,7 +46,6 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull TransaksiViewHolder holder, int position) {
         setData(holder, dataList.get(position));
-        Log.d("DEBUG [TransaksiAdapter]", dataList.get(position).getEmail());
     }
 
     @Override
@@ -57,5 +65,19 @@ public class TransaksiAdapter extends RecyclerView.Adapter<TransaksiViewHolder>{
         holder.setTo(item.getTujuan());
         holder.setToDate(item.getTanggalSampai());
         holder.setToTime(item.getJamSampai());
+        holder.itemView.setOnClickListener(v -> { itemClickListener(v, item); });
+    }
+
+    private void itemClickListener(View view, Transaksi transaksi) {
+        TransaksiDetailFragment tdFragment = new TransaksiDetailFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(Utils.TRANSAKSI_ID, transaksi.getId());
+        tdFragment.setArguments(bundle);
+
+        FragmentManager mFragmentManager = ((AppCompatActivity) context).getSupportFragmentManager();
+        FragmentTransaction mFragmentTransaction = mFragmentManager
+                .beginTransaction()
+                .replace(R.id.nav_host_fragment, tdFragment, tdFragment.getTag());
+        mFragmentTransaction.commit();
     }
 }

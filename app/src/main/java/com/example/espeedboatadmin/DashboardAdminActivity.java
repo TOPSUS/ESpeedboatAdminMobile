@@ -89,7 +89,6 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
             case R.id.nav_review:
                 fragment = new ReviewFragment();
                 title = getString(R.string.menu_review);
-                viewIsAtHome = false;
                 break;
         }
 

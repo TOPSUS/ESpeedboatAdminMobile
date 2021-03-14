@@ -70,7 +70,7 @@ public class ListTransaksiFragment extends Fragment {
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 if (response.isSuccessful()) {
                     if (response.body().getStatus() == 200) {
-                        List<Transaksi> transaksiList = response.body().getData().getTransaksi();
+                        List<Transaksi> transaksiList = response.body().getData().getTransaksiList();
                         recyclerView.setAdapter(new TransaksiAdapter(transaksiList));
                         Toast.makeText(getActivity(), response.body().getMessage(),
                                 Toast.LENGTH_SHORT).show();
