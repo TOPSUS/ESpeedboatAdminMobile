@@ -22,4 +22,11 @@
     <color name="secondary_grey">#ACACAC</color>
     <color name="base_grey">#DDDDDD</color>
     <color name="gradient_end_blue">#7FCCEF</color>
+    <color name="gradient_start_yellow">#FFFFF3</color>
+    <color name="ticket_color">#FFFFED</color>
+
+    <color name="status_red">#EC5564</color>
+    <color name="status_green">#6FDD7A</color>
+    <color name="status_yellow">#FECD57</color>
+    <color name="status_orange">#FB6D51</color>
 </resources>

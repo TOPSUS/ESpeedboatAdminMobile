@@ -3,16 +3,16 @@ package com.example.espeedboatadmin.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Total {
+public class ReviewSummary {
     @SerializedName("total_review")
     @Expose
     private Integer totalReview;
     @SerializedName("total_score")
     @Expose
     private Integer totalScore;
-    @SerializedName("score")
+    @SerializedName("review_summary_score")
     @Expose
-    private Score score;
+    private ReviewSummaryScore reviewSummaryScore;
 
     public Integer getTotalReview() {
         return totalReview;
@@ -30,11 +30,11 @@ public class Total {
         this.totalScore = totalScore;
     }
 
-    public Score getScore() {
-        return score;
+    public ReviewSummaryScore getReviewSummaryScore() {
+        return reviewSummaryScore;
     }
 
-    public void setScore(Score score) {
-        this.score = score;
+    public void setReviewSummaryScore(ReviewSummaryScore reviewSummaryScore) {
+        this.reviewSummaryScore = reviewSummaryScore;
     }
 }

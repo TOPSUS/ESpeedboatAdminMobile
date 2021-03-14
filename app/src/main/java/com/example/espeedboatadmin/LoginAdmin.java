@@ -15,15 +15,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.espeedboatadmin.adapter.ReviewAdapter;
 import com.example.espeedboatadmin.client.RetrofitClient;
 import com.example.espeedboatadmin.client.SessionManager;
 import com.example.espeedboatadmin.model.ResponseAuth;
-import com.example.espeedboatadmin.model.ResponseReview;
-import com.example.espeedboatadmin.model.Review;
-import com.example.espeedboatadmin.model.Score;
 import com.example.espeedboatadmin.service.LoginService;
-import com.example.espeedboatadmin.service.ReviewService;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
