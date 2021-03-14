@@ -28,4 +28,10 @@
         android:name="com.example.espeedboatadmin.ui.review.ReviewFragment"
         android:label="@string/menu_review"
         tools:layout="@layout/fragment_review" />
+
+    <fragment
+        android:id="@+id/nav_listtransaksidone"
+        android:name="com.example.espeedboatadmin.ui.transaksi.ListTransaksiFragment"
+        android:label="@string/menu_transaksi_done"
+        tools:layout="@layout/fragment_list_transaksi" />
 </navigation>

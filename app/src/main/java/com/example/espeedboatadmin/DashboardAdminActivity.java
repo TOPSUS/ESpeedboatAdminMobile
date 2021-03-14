@@ -77,12 +77,12 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
 
         switch (item.getItemId()) {
             case R.id.nav_listtransaksino:
-                fragment = new ListTransaksiFragment();
+                fragment = new ListTransaksiFragment("not done");
                 title = getString(R.string.menu_transaksi_no);
                 viewIsAtHome = false;
                 break;
             case R.id.nav_listtransaksidone:
-                fragment = new ListTransaksiFragment();
+                fragment = new ListTransaksiFragment("done");
                 title = getString(R.string.menu_transaksi_done);
                 viewIsAtHome = false;
                 break;

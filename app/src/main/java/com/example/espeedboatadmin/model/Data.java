@@ -18,6 +18,9 @@ public class Data {
     @SerializedName("review_detail_order")
     @Expose
     private ReviewDetailOrder reviewDetailOrder;
+    @SerializedName("transaksi")
+    @Expose
+    private List<Transaksi> transaksi = null;
 
     public List<ReviewList> getReviewList() {
         return reviewList;
@@ -48,5 +51,13 @@ public class Data {
 
     public void setReviewDetailOrder(ReviewDetailOrder reviewDetailOrder) {
         this.reviewDetailOrder = reviewDetailOrder;
+    }
+
+    public List<Transaksi> getTransaksi() {
+        return transaksi;
+    }
+
+    public void setTransaksi(List<Transaksi> transaksi) {
+        this.transaksi = transaksi;
     }
 }
