@@ -4,63 +4,115 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.telecom.CallScreeningService;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.espeedboatadmin.R;
+import com.example.espeedboatadmin.client.RetrofitClient;
+import com.example.espeedboatadmin.client.SessionManager;
+import com.example.espeedboatadmin.model.Response;
+import com.example.espeedboatadmin.model.ReviewDetail;
+import com.example.espeedboatadmin.model.ReviewDetailOrder;
+import com.example.espeedboatadmin.service.ReviewService;
+import com.example.espeedboatadmin.utils.Utils;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ReviewDetailFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import retrofit2.Call;
+import retrofit2.Callback;
+
 public class ReviewDetailFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public ReviewDetailFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ReviewDetailFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ReviewDetailFragment newInstance(String param1, String param2) {
-        ReviewDetailFragment fragment = new ReviewDetailFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private TextView email, tanggal, review, score_text, from_loc, from_date, from_time, to_loc, to_date,
+                        to_time, speedboat_name, person, total_price;
+    private LinearLayout score;
+    private ImageView imageUser;
+    private Integer review_id = 0;
+    private ReviewService service;
+    private View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            this.review_id = getArguments().getInt(Utils.RD_ID);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_review_detail, container, false);
+        this.view = inflater.inflate(R.layout.fragment_review_detail, container, false);
+        this.service = RetrofitClient.getClient().create(ReviewService.class);
+        getData();
+        return view;
+    }
+
+    private void getData() {
+        if (review_id != 0) {
+            Call<Response> getReview = service.getReviewDetail(new SessionManager(view.getContext()).getAuthToken(), review_id);
+
+            getReview.enqueue(new Callback<Response>() {
+                @Override
+                public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                    if (response.isSuccessful()) {
+                        if (response.body().getStatus() == 200) {
+                            setIds();
+                            setValue(response.body().getData().getReviewDetail(), response.body().getData().getReviewDetailOrder());
+                        } else {
+                            Toast.makeText(getActivity(), response.body().getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<Response> call, Throwable t) {
+                    Log.e("ERROR [ReviewDetailFragment] ", t.getMessage());
+                    Toast.makeText(getActivity(),  t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+    }
+
+    private void setIds() {
+        this.email = (TextView) view.findViewById(R.id.rd_email);
+        this.tanggal = (TextView) view.findViewById(R.id.rd_tanggal);
+        this.score = (LinearLayout) view.findViewById(R.id.rd_score_wrapper);
+        this.score_text = (TextView) view.findViewById(R.id.rd_score);
+        this.review = (TextView) view.findViewById(R.id.rd_review);
+        this.imageUser = (ImageView) view.findViewById(R.id.rd_image_user);
+        this.from_loc = (TextView) view.findViewById(R.id.rd_from_loc);
+        this.from_date = (TextView) view.findViewById(R.id.rd_from_date);
+        this.from_time = (TextView) view.findViewById(R.id.rd_from_time);
+        this.to_loc = (TextView) view.findViewById(R.id.rd_to_loc);
+        this.to_date = (TextView) view.findViewById(R.id.rd_to_date);
+        this.to_time = (TextView) view.findViewById(R.id.rd_to_time);
+        this.speedboat_name = (TextView) view.findViewById(R.id.rd_speedboat);
+        this.person = (TextView) view.findViewById(R.id.rd_person);
+        this.total_price = (TextView) view.findViewById(R.id.rd_price);
+    }
+
+    private void setValue(ReviewDetail data, ReviewDetailOrder data_order) {
+        Utils.setScore(data.getScore(), this.getContext(), this.score);
+        Utils.setImageUser(data.getImage(), this.imageUser);
+
+        this.email.setText(data.getEmail());
+        this.tanggal.setText(data.getTanggal());
+        this.score_text.setText(data.getScore().toString());
+        this.review.setText(data.getReview());
+        this.from_loc.setText(data_order.getFromPlace());
+        this.from_date.setText(data_order.getFromDate());
+        this.from_time.setText(data_order.getFromTime());
+        this.to_loc.setText(data_order.getToPlace());
+        this.to_date.setText(data_order.getToDate());
+        this.to_time.setText(data_order.getToTime());
+        this.speedboat_name.setText(data_order.getSpeedboat());
+        this.person.setText(data_order.getPerson() + " Persons");
+        this.total_price.setText(data_order.getPrice().toString());
     }
 }

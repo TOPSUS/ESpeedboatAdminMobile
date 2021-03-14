@@ -3,7 +3,8 @@ package com.example.espeedboatadmin.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Review {
+public class ReviewDetail {
+
     @SerializedName("id")
     @Expose
     private Integer id;
