@@ -109,31 +109,33 @@ public class LoginAdmin extends AppCompatActivity {
     }
 
     private void login() {
+        dialog.setMessage("Logging In");
+        dialog.show();
         Call<ResponseAuth> login = servicelogin.postLogin(txtEmail.getText().toString(), txtPassword.getText().toString());
         login.enqueue(new Callback<ResponseAuth>() {
             @Override
             public void onResponse(Call<ResponseAuth> call, Response<ResponseAuth> response) {
-                dialog.setMessage("Logging In");
-                dialog.show();
-                Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
-                sesi = new SessionManager(getApplicationContext());
-                sesi.setAuthToken(String.valueOf(response.body().getToken()));
-                sesi.setUserNama(String.valueOf(response.body().getUser().getNama()));
-                sesi.setUserEmail(String.valueOf(response.body().getUser().getEmail()));
-                sesi.setFlag(Boolean.valueOf(response.body().getSuccess()));
-                dialog.dismiss();
-                startActivity(new Intent(LoginAdmin.this, DashboardAdminActivity.class));
-                finish();
-
+                if(String.valueOf(response.body().getStatus()).equals("404")) {
+                    Toast.makeText(getApplicationContext(), "Email/Password Salah!", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
+                    sesi = new SessionManager(getApplicationContext());
+                    sesi.setAuthToken(String.valueOf(response.body().getToken()));
+                    sesi.setUserNama(String.valueOf(response.body().getUser().getNama()));
+                    sesi.setUserEmail(String.valueOf(response.body().getUser().getEmail()));
+                    sesi.setFlag(Boolean.valueOf(response.body().getSuccess()));
+                    startActivity(new Intent(LoginAdmin.this, DashboardAdminActivity.class));
+                    finish();
+                    dialog.dismiss();
+                }
             }
 
             @Override
             public void onFailure(Call<ResponseAuth> call, Throwable t) {
-                dialog.setMessage("Logging In");
-                dialog.show();
                 Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-            }
+        }
         });
     }
 
