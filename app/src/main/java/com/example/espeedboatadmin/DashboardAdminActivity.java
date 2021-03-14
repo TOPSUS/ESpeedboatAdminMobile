@@ -53,7 +53,7 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
 
         if (savedInstanceState == null) {
             navigationView.setCheckedItem(R.id.nav_home);
-            moveFragment(new HomeFragment());
+            moveFragment(new HomeFragment(), getString(R.string.menu_home));
         }
     }
 
@@ -93,11 +93,7 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
                 break;
         }
 
-        moveFragment(fragment);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(title);
-        }
+        moveFragment(fragment, title);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -113,17 +109,21 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
         }
         if (!viewIsAtHome) {
             navigationView.setCheckedItem(R.id.nav_home);
-            moveFragment(new HomeFragment());
+            moveFragment(new HomeFragment(), getString(R.string.menu_home));
         } else {
             moveTaskToBack(true);
         }
     }
 
-    private void moveFragment(Fragment fragment) {
+    private void moveFragment(Fragment fragment, String title) {
         if (fragment != null) {
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.nav_host_fragment, fragment);
             ft.commit();
+        }
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
         }
     }
 }
