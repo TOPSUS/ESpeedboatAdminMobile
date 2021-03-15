@@ -1,17 +1,22 @@
 package com.example.espeedboatadmin;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.espeedboatadmin.ui.home.HomeFragment;
 import com.example.espeedboatadmin.ui.review.ReviewFragment;
+import com.example.espeedboatadmin.ui.scanner.QrFragment;
 import com.example.espeedboatadmin.ui.transaksi.ListTransaksiFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
@@ -50,11 +55,12 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
+    }
 
-        if (savedInstanceState == null) {
-            navigationView.setCheckedItem(R.id.nav_home);
-            moveFragment(new HomeFragment(), getString(R.string.menu_home));
-        }
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+        return super.onCreateView(name, context, attrs);
     }
 
     @Override
@@ -89,6 +95,10 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
             case R.id.nav_review:
                 fragment = new ReviewFragment();
                 title = getString(R.string.menu_review);
+                break;
+            case R.id.nav_scanner:
+                fragment = new QrFragment();
+                title = getString(R.string.sb_qr);
                 break;
         }
 
