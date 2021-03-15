@@ -54,5 +54,9 @@
             android:id="@+id/nav_review"
             android:icon="@drawable/ic_customer_feedback"
             android:title="@string/sb_review" />
+        <item
+            android:id="@+id/nav_scanner"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/sb_qr" />
     </group>
 </menu>

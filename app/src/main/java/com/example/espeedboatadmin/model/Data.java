@@ -24,7 +24,9 @@ public class Data {
     @SerializedName("transaksi")
     @Expose
     private Transaksi transaksi = null;
-
+    @SerializedName("tiket")
+    @Expose
+    private Tiket tiket;
 
     public List<ReviewList> getReviewList() {
         return reviewList;
@@ -72,4 +74,13 @@ public class Data {
     public void setTransaksi(Transaksi transaksi) {
         this.transaksi = transaksi;
     }
+
+    public Tiket getTiket() {
+        return tiket;
+    }
+
+    public void setTiket(Tiket tiket) {
+        this.tiket = tiket;
+    }
+
 }

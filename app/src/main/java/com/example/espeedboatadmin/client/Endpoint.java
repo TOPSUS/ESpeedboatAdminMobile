@@ -8,4 +8,6 @@ public class Endpoint {
     public static final String TRANSAKSI_LIST_SELESAI = "transaksi/done";
     public static final String TRANSAKSI_DETAIL = "transaksi/detail/{id}";
     public static final String TRANSAKSI_APPROVE = "transaksi/approve/{id}";
+    public static final String TRANSAKSI_TIKET = "transaksi/tiket/{kode_tiket}";
+    public static final String TRANSAKSI_TIKET_APPROVE = "transaksi/tiket/approve/{id}";
 }

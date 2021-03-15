@@ -10,6 +10,7 @@ import com.squareup.picasso.Picasso;
 public class Utils {
     public static String RD_ID = "review_detail_id";
     public static String TRANSAKSI_ID = "transaksi_id";
+    public static String KODE_TIKET = "kode_tiket";
 
     public static int dpToPx(int dp, Context context) {
         float density = context.getResources().getDisplayMetrics().density;

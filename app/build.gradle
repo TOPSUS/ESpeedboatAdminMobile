@@ -22,6 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -48,4 +49,14 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // Barcode scanner
+    implementation 'com.google.mlkit:barcode-scanning:16.1.1'
+
+    //CameraX Dependencies
+    implementation "androidx.camera:camera-core:1.1.0-alpha02"
+    implementation "androidx.camera:camera-camera2:1.1.0-alpha02"
+    implementation "androidx.camera:camera-lifecycle:1.1.0-alpha02"
+    implementation "androidx.camera:camera-view:1.0.0-alpha22"
+    implementation "androidx.camera:camera-extensions:1.0.0-alpha22"
 }
