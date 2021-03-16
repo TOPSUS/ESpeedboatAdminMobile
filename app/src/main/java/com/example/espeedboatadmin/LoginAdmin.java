@@ -17,7 +17,8 @@ import android.widget.Toast;
 
 import com.example.espeedboatadmin.client.RetrofitClient;
 import com.example.espeedboatadmin.client.SessionManager;
-import com.example.espeedboatadmin.model.ResponseAuth;
+import com.example.espeedboatadmin.model.Auth;
+import com.example.espeedboatadmin.model.Response;
 import com.example.espeedboatadmin.service.LoginService;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -26,7 +27,6 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 
 public class LoginAdmin extends AppCompatActivity {
     private TextInputLayout layoutemail, layoutpass;
@@ -106,31 +106,32 @@ public class LoginAdmin extends AppCompatActivity {
     private void login() {
         dialog.setMessage("Logging In");
         dialog.show();
-        Call<ResponseAuth> login = servicelogin.postLogin(txtEmail.getText().toString(), txtPassword.getText().toString());
-        login.enqueue(new Callback<ResponseAuth>() {
+        Call<Response> login = servicelogin.postLogin(txtEmail.getText().toString(), txtPassword.getText().toString());
+        login.enqueue(new Callback<Response>() {
             @Override
-            public void onResponse(Call<ResponseAuth> call, Response<ResponseAuth> response) {
-                if(String.valueOf(response.body().getStatus()).equals("404")) {
-                    Toast.makeText(getApplicationContext(), "Email/Password Salah!", Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
-                }else{
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                if (response.body().getStatus() == 200) {
+                    Auth auth = response.body().getData().getAuth();
                     Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
                     sesi = new SessionManager(getApplicationContext());
-                    sesi.setAuthToken(String.valueOf(response.body().getToken()));
-                    sesi.setUserNama(String.valueOf(response.body().getUser().getNama()));
-                    sesi.setUserEmail(String.valueOf(response.body().getUser().getEmail()));
-                    sesi.setFlag(Boolean.valueOf(response.body().getSuccess()));
+                    sesi.setAuthToken(String.valueOf(auth.getToken()));
+                    sesi.setUserNama(String.valueOf(auth.getUser().getNama()));
+                    sesi.setUserEmail(String.valueOf(auth.getUser().getEmail()));
+                    sesi.setFlag(true);
                     startActivity(new Intent(LoginAdmin.this, DashboardAdminActivity.class));
                     finish();
+                    dialog.dismiss();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Email/Password Salah!", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }
             }
 
             @Override
-            public void onFailure(Call<ResponseAuth> call, Throwable t) {
+            public void onFailure(Call<Response> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Login Gagal", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
-        }
+            }
         });
     }
 
