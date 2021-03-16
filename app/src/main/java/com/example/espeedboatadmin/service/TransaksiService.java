@@ -22,4 +22,12 @@ public interface TransaksiService {
     @GET(Endpoint.TRANSAKSI_APPROVE)
     Call<Response> approveTransaksi(@Header("Authorization") String token,
                                     @Path(value = "id", encoded = true) Integer id);
+
+    @GET(Endpoint.TRANSAKSI_TIKET)
+    Call<Response> showTiket(@Header("Authorization") String token,
+                             @Path(value = "kode_tiket", encoded = true) String kode_tiket);
+
+    @GET(Endpoint.TRANSAKSI_TIKET_APPROVE)
+    Call<Response> approveTiket(@Header("Authorization") String token,
+                                @Path(value = "id", encoded = true) Integer id);
 }

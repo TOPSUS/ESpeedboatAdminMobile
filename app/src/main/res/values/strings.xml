@@ -28,6 +28,7 @@
     <string name="sb_transaksi_not_done">Transaksi not Done</string>
     <string name="sb_point">Point Management</string>
     <string name="sb_review">Review</string>
+    <string name="sb_qr">QR Scanner</string>
 
     <string name="rd_from">From</string>
     <string name="rd_to">To</string>
@@ -36,6 +37,5 @@
     <string name="btn_approve">Approve</string>
     <string name="btn_review">Review</string>
     <string name="btn_payment">Proof of Payment</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
