@@ -110,6 +110,10 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
                 fragment = new QrFragment();
                 title = getString(R.string.sb_qr);
                 break;
+            case R.id.nav_home:
+                fragment = new HomeFragment();
+                title = getString(R.string.sb_dashboard);
+                break;
         }
 
         moveFragment(fragment, title);
