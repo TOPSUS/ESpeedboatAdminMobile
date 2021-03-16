@@ -110,20 +110,22 @@ public class LoginAdmin extends AppCompatActivity {
         login.enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
-                if (response.body().getStatus() == 200) {
-                    Auth auth = response.body().getData().getAuth();
-                    Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
-                    sesi = new SessionManager(getApplicationContext());
-                    sesi.setAuthToken(String.valueOf(auth.getToken()));
-                    sesi.setUserNama(String.valueOf(auth.getUser().getNama()));
-                    sesi.setUserEmail(String.valueOf(auth.getUser().getEmail()));
-                    sesi.setFlag(true);
-                    startActivity(new Intent(LoginAdmin.this, DashboardAdminActivity.class));
-                    finish();
-                    dialog.dismiss();
-                }else{
-                    Toast.makeText(getApplicationContext(), "Email/Password Salah!", Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
+                if (response.isSuccessful()) {
+                    if (response.body().getStatus() == 200) {
+                        Auth auth = response.body().getData().getAuth();
+                        Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
+                        sesi = new SessionManager(getApplicationContext());
+                        sesi.setAuthToken(String.valueOf(auth.getToken()));
+                        sesi.setUserNama(String.valueOf(auth.getUser().getNama()));
+                        sesi.setUserEmail(String.valueOf(auth.getUser().getEmail()));
+                        sesi.setFlag(true);
+                        startActivity(new Intent(LoginAdmin.this, DashboardAdminActivity.class));
+                        finish();
+                        dialog.dismiss();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Email/Password Salah!", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
                 }
             }
 
