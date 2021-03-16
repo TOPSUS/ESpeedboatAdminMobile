@@ -3,8 +3,11 @@ package com.example.espeedboatadmin;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.espeedboatadmin.ui.home.HomeFragment;
+import com.example.espeedboatadmin.ui.profile.ProfileFragment;
 import com.example.espeedboatadmin.ui.review.ReviewFragment;
 import com.example.espeedboatadmin.ui.transaksi.ListTransaksiFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -29,15 +32,12 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
     private AppBarConfiguration mAppBarConfiguration;
     private NavigationView navigationView;
     private boolean viewIsAtHome;
+    ImageView profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard_admin);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,6 +45,7 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        profile = findViewById(R.id.nav_header_profile);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -61,6 +62,16 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.dashboard_admin, menu);
         return true;
+    }
+
+    public void profilethis(View view){
+        Fragment fragments = null;
+        String title = getString(R.string.app_name);
+        fragments = new ProfileFragment();
+        title = getString(R.string.menu_profile);
+        moveFragment(fragments, title);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
     }
 
     @Override
