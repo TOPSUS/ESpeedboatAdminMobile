@@ -6,6 +6,9 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Data {
+    @SerializedName("auth")
+    @Expose
+    private Auth auth;
     @SerializedName("review_list")
     @Expose
     private List<ReviewList> reviewList = null;
@@ -27,6 +30,14 @@ public class Data {
     @SerializedName("tiket")
     @Expose
     private Tiket tiket;
+
+    public Auth getAuth() {
+        return auth;
+    }
+
+    public void setAuth(Auth auth) {
+        this.auth = auth;
+    }
 
     public List<ReviewList> getReviewList() {
         return reviewList;

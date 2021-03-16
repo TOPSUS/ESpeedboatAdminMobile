@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.espeedboatadmin.ui.home.HomeFragment;
 import com.example.espeedboatadmin.ui.profile.ProfileFragment;
@@ -108,6 +109,10 @@ public class DashboardAdminActivity extends AppCompatActivity implements Navigat
             case R.id.nav_scanner:
                 fragment = new QrFragment();
                 title = getString(R.string.sb_qr);
+                break;
+            case R.id.nav_home:
+                fragment = new HomeFragment();
+                title = getString(R.string.sb_dashboard);
                 break;
         }
 

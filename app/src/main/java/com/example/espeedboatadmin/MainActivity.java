@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-               isLoggedIn = new SessionManager(getApplicationContext()).getUserFlag();
+                isLoggedIn = new SessionManager(getApplicationContext()).getUserFlag();
                 if(isLoggedIn){
                     startActivity(new Intent(MainActivity.this, DashboardAdminActivity.class));
                     finish();

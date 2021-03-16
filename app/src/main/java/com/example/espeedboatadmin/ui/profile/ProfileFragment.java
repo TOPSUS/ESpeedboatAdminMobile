@@ -13,20 +13,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.espeedboatadmin.DashboardAdminActivity;
 import com.example.espeedboatadmin.LoginAdmin;
 import com.example.espeedboatadmin.R;
 import com.example.espeedboatadmin.client.RetrofitClient;
 import com.example.espeedboatadmin.client.SessionManager;
-import com.example.espeedboatadmin.model.ResponseAuth;
-import com.example.espeedboatadmin.model.ResponseLogout;
-import com.example.espeedboatadmin.service.LoginService;
+import com.example.espeedboatadmin.model.Response;
 import com.example.espeedboatadmin.service.LogoutService;
-import com.example.espeedboatadmin.service.ReviewService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ProfileFragment extends Fragment {
     Button logout;
@@ -64,17 +59,23 @@ public class ProfileFragment extends Fragment {
         builder.setPositiveButton("Log Out", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Call<ResponseLogout> logout = servicelogout.postLogout(new SessionManager(view.getContext()).getToken());
-                logout.enqueue(new Callback<ResponseLogout>() {
+                Call<Response> logout = servicelogout.postLogout(new SessionManager(view.getContext()).getToken());
+                logout.enqueue(new Callback<Response>() {
                     @Override
-                    public void onResponse(Call<ResponseLogout> call, Response<ResponseLogout> response) {
-                        sesi = new SessionManager(view.getContext());
-                        sesi.setFlagOff();
-                        startActivity(new Intent(view.getContext(), LoginAdmin.class));
+                    public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                        if (response.isSuccessful()) {
+                            if (response.body().getStatus() == 200) {
+                                sesi = new SessionManager(view.getContext());
+                                sesi.setFlagOff();
+                                startActivity(new Intent(view.getContext(), LoginAdmin.class));
+                            } else {
+                                Toast.makeText(getContext(), "Log Out Gagal", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                     }
 
                     @Override
-                    public void onFailure(Call<ResponseLogout> call, Throwable t) {
+                    public void onFailure(Call<Response> call, Throwable t) {
                         Toast.makeText(getContext(), "Log Out Gagal", Toast.LENGTH_SHORT).show();
                     }
                 });

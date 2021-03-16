@@ -38,4 +38,7 @@
     <string name="btn_review">Review</string>
     <string name="btn_payment">Proof of Payment</string>
 
+    <string name="qr_screen_desc">Scan Ticket QR Here!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
