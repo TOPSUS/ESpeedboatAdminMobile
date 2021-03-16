@@ -15,11 +15,12 @@
     <string name="menu_review">Review</string>
     <string name="menu_transaksi_no">Transaksi not Done</string>
     <string name="menu_transaksi_done">Transaksi Done</string>
+    <string name="menu_profile">Profil Admin</string>
 
     <string name="sb_view">Views</string>
     <string name="sb_dashboard">Dashboard</string>
     <string name="sb_berita">Berita</string>
-    <string name="sb_profile">Profile</string>
+    <string name="sb_profile">Profile Speedboat</string>
     <string name="sb_list_berita_speedboat">List Berita Speedboat</string>
     <string name="sb_management">Managements</string>
     <string name="sb_jadwal_edit">Edit Jadwal</string>
@@ -37,5 +38,4 @@
     <string name="btn_review">Review</string>
     <string name="btn_payment">Proof of Payment</string>
 
-    <string name="qr_screen_desc">Scan Ticket QR Here!</string>
 </resources>
