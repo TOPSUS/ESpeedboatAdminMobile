@@ -70,12 +70,21 @@ public class BottomBarcode extends BottomSheetDialogFragment {
         showTiket.enqueue(new Callback<Response>() {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
-                setValue(response.body().getData().getTiket());
+                if (response.isSuccessful()) {
+                    if (response.body().getStatus() == 200) {
+                        setValue(response.body().getData().getTiket());
+                    } else {
+                        Toast.makeText(getActivity(), response.body().getMessage(),
+                                Toast.LENGTH_LONG).show();
+                    }
+                }
             }
 
             @Override
             public void onFailure(Call<Response> call, Throwable t) {
                 Log.d("Failure [Bottom Barcode]", t.getMessage());
+                Toast.makeText(getActivity(), t.getMessage(),
+                        Toast.LENGTH_LONG).show();
             }
         });
         this.priceTiket.setText(url);

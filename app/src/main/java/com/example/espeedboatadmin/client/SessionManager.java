@@ -57,4 +57,14 @@ public class SessionManager{
     public boolean getUserFlag() {
         return sharedPreferences.getBoolean(USER_FLAG, false);
     }
+
+    public void setFlagOff() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+    }
+
+    public String getToken() {
+        return sharedPreferences.getString(USER_TOKEN, null);
+    }
 }
