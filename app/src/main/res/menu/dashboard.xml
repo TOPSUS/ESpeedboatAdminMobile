@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_dashboard"
+        android:title="Dashboard"
+        android:icon="@drawable/ic_dashboard_24"/>
+    <item
+        android:id="@+id/action_speedboat"
+        android:title="Speedboat"
+        android:icon="@drawable/ic_speedboat"/>
+    <item
+        android:id="@+id/action_transaction"
+        android:title="Transaction"
+        android:icon="@drawable/ic_transaction"/>
+    <item
+        android:id="@+id/action_options"
+        android:title="Options"
+        android:icon="@drawable/ic_burger_menu_24"/>
+</menu>
