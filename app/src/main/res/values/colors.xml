@@ -29,4 +29,11 @@
     <color name="status_green">#6FDD7A</color>
     <color name="status_yellow">#FECD57</color>
     <color name="status_orange">#FB6D51</color>
+
+    <color name="gradient_pink">#F2BAE8</color>
+    <color name="gradient_blue">#1BA0DC</color>
+    <color name="gradient_secondary_blue">#A8DDF3</color>
+
+    <color name="text_grey">#929292</color>
+    <color name="text_grey_light">#CECECE</color>
 </resources>

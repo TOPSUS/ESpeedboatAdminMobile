@@ -41,4 +41,10 @@
     <string name="qr_screen_desc">Scan Ticket QR Here!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_masuk">Masuk</string>
+    <string name="login_forgot">Lupa Password</string>
+
+    <!--  Splash  -->
+    <string name="splash_app">E-Speedboat</string>
+    <string name="splash_admin">Admin</string>
 </resources>

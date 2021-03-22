@@ -12,6 +12,8 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,9 +31,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 
 public class LoginAdmin extends AppCompatActivity {
-    private TextInputLayout layoutemail, layoutpass;
-    private TextInputEditText txtEmail, txtPassword;
-    private Button submitlogin;
+//    private TextInputLayout layoutemail, layoutpass;
+    private EditText txtEmail, txtPassword;
+    private ImageButton submitlogin;
     View view;
     Context context;
     private TextView lupapass;
@@ -48,8 +50,8 @@ public class LoginAdmin extends AppCompatActivity {
 
     private void init() {
         servicelogin = RetrofitClient.getClient().create(LoginService.class);
-        layoutemail = findViewById(R.id.EmailLayout);
-        layoutpass = findViewById(R.id.PaswordLayout);
+//        layoutemail = findViewById(R.id.EmailLayout);
+//        layoutpass = findViewById(R.id.PaswordLayout);
         txtEmail = findViewById(R.id.emailadmin);
         txtPassword = findViewById(R.id.passwordadmin);
         submitlogin = findViewById(R.id.loginbutton);
@@ -73,7 +75,7 @@ public class LoginAdmin extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(!txtEmail.getText().toString().isEmpty()){
-                    layoutemail.setErrorEnabled(false);
+//                    layoutemail.setErrorEnabled(false);
                 }
             }
 
@@ -92,7 +94,7 @@ public class LoginAdmin extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(txtPassword.getText().toString().length()>1){
-                    layoutpass.setErrorEnabled(false);
+//                    layoutpass.setErrorEnabled(false);
                 }
             }
 
@@ -139,14 +141,14 @@ public class LoginAdmin extends AppCompatActivity {
 
     private boolean validate() {
         if (txtEmail.getText().toString().isEmpty()){
-            layoutemail.setErrorEnabled(true);
-            layoutemail.setError("Email is Required");
+//            layoutemail.setErrorEnabled(true);
+//            layoutemail.setError("Email is Required");
             return false;
         }
 
         if(txtPassword.getText().toString().length()<5){
-            layoutpass.setErrorEnabled(true);
-            layoutpass.setError("Required at least 8 characters");
+//            layoutpass.setErrorEnabled(true);
+//            layoutpass.setError("Required at least 8 characters");
             return false;
         }
         return true;

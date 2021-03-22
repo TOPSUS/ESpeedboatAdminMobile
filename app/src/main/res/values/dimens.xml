@@ -10,5 +10,11 @@
     <dimen name="design_navigation_padding_bottom" tools:override="true">0dp</dimen>
     <dimen name="navigation_separator_vertical_padding">0dp</dimen>
 
+    <dimen name="login_margin">48dp</dimen>
+    <dimen name="login_margin_16">16dp</dimen>
+    <dimen name="login_margin_24">24dp</dimen>
+    <dimen name="login_margin_32">32dp</dimen>
+    <dimen name="login_margin_64">64dp</dimen>
+    <dimen name="login_text_72">72dp</dimen>
 
 </resources>

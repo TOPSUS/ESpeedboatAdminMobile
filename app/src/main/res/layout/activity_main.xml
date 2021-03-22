@@ -5,39 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="#EAF8FF">
+    android:background="@color/white">
+
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints"
-        android:paddingTop="190dp"
-        android:orientation="vertical">
-        <de.hdodenhof.circleimageview.CircleImageView
-            app:civ_border_width="1dp"
-            app:civ_border_color="#1BA0DC"
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            tools:ignore="MissingConstraints"
-            android:src="@drawable/logotopsus"/>
-        <TextView
-            android:textStyle="bold"
-            android:paddingTop="10dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/splash_top"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="E-Speedboat"
-            android:fontFamily="sans-serif-thin"
-            android:textColor="@color/black"
-            android:textSize="40dp"/>
-        <TextView
-            android:paddingTop="5dp"
-            android:gravity="center"
-            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/logo_app" />
+        <LinearLayout
+            android:id="@+id/splash_bottom"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Admin Aplication"
-            android:fontFamily="sans-serif-thin"
-            android:textColor="@color/black"
-            android:textSize="20dp"/>
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/splash_app"
+                android:textSize="16sp"
+                android:textColor="@color/primary_blue"
+                android:textAlignment="center"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/splash_admin"
+                android:textSize="16sp"
+                android:textColor="@color/primary_blue"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
