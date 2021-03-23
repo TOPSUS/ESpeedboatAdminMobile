@@ -6,6 +6,48 @@
     android:layout_height="match_parent"
     android:background="@color/tetry_base"
     tools:context=".ui.home.HomeFragment">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:padding="24dp"-->
+<!--            android:orientation="vertical">-->
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Dashboard"-->
+<!--                android:fontFamily="@font/roboto_regular"-->
+<!--                android:textSize="24sp"-->
+<!--                android:textColor="#929292"/>-->
+<!--            <LinearLayout-->
+<!--                android:layout_marginTop="12dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:weightSum="2"-->
+<!--                android:padding="16dp"-->
+<!--                android:background="@drawable/bg_blue">-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Total"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_weight="1"/>-->
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="IDR 800.000,-"-->
+<!--                    android:fontFamily="@font/roboto_medium"-->
+<!--                    android:textAlignment="textEnd"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_weight="1"/>-->
+<!--            </LinearLayout>-->
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
     <LinearLayout
         android:paddingTop="7dp"
         android:layout_width="match_parent"
